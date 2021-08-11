@@ -1,108 +1,102 @@
-:root{
-    --desktop-bg : hsl(233, 47%, 7%);
-    --card-bg: hsl(244, 38%, 16%);
-    --pic-accent: hsl(277, 64%, 61%);
-    --txt-main-heading: hsl(0, 0%, 100%);
-    --txt-para: hsla(0, 0%, 100%, 0.75);
-    --txt-stat-headings: hsla(0, 0%, 100%, 0.6);
+:root {
+  --desktop-bg: hsl(233, 47%, 7%);
+  --card-bg: hsl(244, 38%, 16%);
+  --pic-accent: hsl(277, 64%, 61%);
+  --txt-main-heading: hsl(0, 0%, 100%);
+  --txt-para: hsla(0, 0%, 100%, 0.75);
+  --txt-stat-headings: hsla(0, 0%, 100%, 0.6);
 }
 
 @font-face {
-    font-family: 'Lexend Deca';
-    src: url('font/LexendDeca-Regular.woff2') format('woff2'),
-        url('font/LexendDeca-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Lexend Deca";
+  src: url("font/LexendDeca-Regular.woff2") format("woff2"),
+    url("font/LexendDeca-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
-body{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-size: 15px;
-    font-weight: 400;
-    background-color: var(--desktop-bg);
-    font-family: 'Lexend Deca';
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 400;
+  background-color: var(--desktop-bg);
+  font-family: "Lexend Deca";
 }
 
-main{
-    color: white;
-    text-align: center;
+main {
+  color: white;
+  text-align: center;
 }
-.card{
-    background-color: var(--card-bg);
-    border-radius: 10px;
-    margin: 1em;
-    max-width: 540px;
+.card {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  margin: 2.5em auto;
+  max-width: 375px;
 }
-.written-content{
-    padding: 1rem 0.5rem;
+.written-content {
+  padding: 1rem;
 }
-h1{
-    font-size: 2rem;
+h1 {
+  font-size: 2rem;
 }
-h1 ~ p, .num ~ p{
-    color: var(--txt-para);
+h1 ~ p,
+.num ~ p {
+  color: var(--txt-para);
 }
-.num{
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 0;
+.num {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0;
 }
-.image-desktop{
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    max-height: 25%;
-    opacity: 0.2;
+.image-desktop {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  max-height: 25%;
+  opacity: 0.2;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.image-div {
+  background: var(--pic-accent);
+  max-width: 540px;
+  margin: auto;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+@media only screen and (min-width: 1250px) {
+  .card {
+    display: grid;
+    grid-template-columns: 540px 1fr;
+    grid-template-rows: 1fr 30px;
+    max-width: 1080px;
+    position: relative;
+    transform: translateY(50%);
+  }
+  .written-content {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    text-align: left;
+    padding: 4em;
+    border-bottom: 4px solid var(--pic-accent);
+  }
+  .image-div {
+    grid-row: 1/2;
+    grid-column: 2/3;
     border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-}
-.image-div{
-    background: var(--pic-accent);
-    max-width: 540px;
-    margin: auto;
+    border-top-left-radius: 0;
+  }
+  .image-desktop {
     border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-}
-@media only screen and (min-width: 545px){
-    .card{
-        margin: 1em auto;
-    }
-}
-@media only screen and (min-width: 1250px){
-    .card{
-        display: grid;
-        grid-template-columns: 540px 1fr;
-        grid-template-rows: 1fr 30px;
-        max-width: 1080px;
-        margin: auto;
-        position: relative;
-        transform: translateY(50%);
-    }
-    .written-content{
-        grid-row: 1/2;
-        grid-column: 1/2;
-        text-align: left;
-        padding:4em;
-        border-bottom: 4px solid var(--pic-accent);
-    }
-    .image-div{
-        grid-row: 1/2;
-        grid-column: 2/3;
-        border-top-right-radius: 10px;
-        border-top-left-radius: 0;
-    }
-    .image-desktop{
-        border-top-right-radius: 10px;
-        border-top-left-radius: 0;
-    }
-    .stats{
-        display: flex;
-        justify-content: space-between;
-    }
-    
+    border-top-left-radius: 0;
+  }
+  .stats {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 /* .card{
@@ -142,13 +136,13 @@ h1{
     background: var(--pic-accent);
     border-top-right-radius: 10px;
 } */
-.attribution { 
-    grid-column: 1/3;
-    grid-row: 2/3;
-    font-size: 11px; 
-    text-align: center; 
-    padding: 1em 0;
+.attribution {
+  grid-column: 1/3;
+  grid-row: 2/3;
+  font-size: 11px;
+  text-align: center;
+  padding: 1em 0;
 }
-.attribution a { 
-    color: hsl(228, 45%, 44%); 
+.attribution a {
+  color: hsl(228, 45%, 44%);
 }

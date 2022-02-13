@@ -17,12 +17,17 @@
 
 body {
   box-sizing: border-box;
-  padding: 0;
+  padding: 1em;
   margin: 0;
   font-size: 15px;
   font-weight: 400;
   background-color: var(--desktop-bg);
   font-family: "Lexend Deca";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 main {
@@ -32,7 +37,7 @@ main {
 .card {
   background-color: var(--card-bg);
   border-radius: 10px;
-  margin: 2.5em auto;
+  margin: 0.5em auto;
   max-width: 375px;
 }
 .written-content {
@@ -51,37 +56,40 @@ h1 ~ p,
   color: white;
   margin-bottom: 0;
 }
-.image-desktop {
+.image-desktop, .filter, .image-mobile{
   width: 100%;
-  height: auto;
+  height: 100%;
   overflow: hidden;
-  max-height: 25%;
-  opacity: 0.2;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
+.image-desktop{
+  display: none;
+}
 .image-div {
-  background: var(--pic-accent);
-  max-width: 540px;
-  margin: auto;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+  position: relative;
+}
+.filter{
+  opacity: 0.5;
+  background-color: var(--pic-accent);
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top-left-radius: 0px;
 }
 @media only screen and (min-width: 1250px) {
   .card {
     display: grid;
     grid-template-columns: 540px 1fr;
-    grid-template-rows: 1fr 30px;
+    grid-template-rows: 1fr;
     max-width: 1080px;
-    position: relative;
-    transform: translateY(50%);
   }
   .written-content {
     grid-row: 1/2;
     grid-column: 1/2;
     text-align: left;
     padding: 4em;
-    border-bottom: 4px solid var(--pic-accent);
+    /* border-bottom: 4px solid var(--pic-accent); */
   }
   .image-div {
     grid-row: 1/2;
@@ -90,8 +98,16 @@ h1 ~ p,
     border-top-left-radius: 0;
   }
   .image-desktop {
+    display: block;
     border-top-right-radius: 10px;
     border-top-left-radius: 0;
+    border-bottom-right-radius: 10px;
+  }
+  .image-mobile{
+    display: none;
+  }
+  .filter{
+    border-bottom-right-radius: 10px;
   }
   .stats {
     display: flex;
@@ -142,6 +158,7 @@ h1{
   font-size: 11px;
   text-align: center;
   padding: 1em 0;
+  color: white;
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
